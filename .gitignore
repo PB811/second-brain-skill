@@ -1,0 +1,9 @@
+# Generated output — never commit (the skill regenerates it per-repo)
+vault/
+.graphify/
+**/graphify-out/
+
+# Python / OS cruft
+__pycache__/
+*.pyc
+.DS_Store

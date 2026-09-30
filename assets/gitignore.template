@@ -1,0 +1,18 @@
+# The generated Obsidian vault is private + reproducible — never commit it.
+# Rebuild it any time with:  python3 second-brain/build_brain.py
+vault/
+
+# Obsidian per-machine workspace state (if a vault ever lives here)
+.obsidian/workspace*
+.obsidian/cache
+
+# Graphify build artifacts (the code graph is regenerated locally, never committed)
+.graphify/
+**/graphify-out/
+.graphify_analysis.json
+.graphify_labels.json
+
+# Local build artifacts
+.brain_cache/
+*.pyc
+__pycache__/

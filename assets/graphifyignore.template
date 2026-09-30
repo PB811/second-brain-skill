@@ -1,0 +1,4 @@
+# .graphifyignore — like .gitignore, but for the Graphify code graph.
+# Keeps the second-brain scaffold's own machinery out of the graph so it
+# reflects only the real codebase.
+second-brain/

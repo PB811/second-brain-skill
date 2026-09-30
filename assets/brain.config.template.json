@@ -1,0 +1,42 @@
+{
+  "title": "{{PROJECT_TITLE}} Second Brain",
+  "description": "{{PROJECT_DESCRIPTION}}",
+  "knowledge_dir": "knowledge",
+  "vault_dir": "vault",
+  "repo_root": "..",
+
+  "graph_source": {
+    "primary": "cbm",
+    "note": "Layer-1 code-graph substrate. 'cbm' = codebase-memory-mcp (MCP-native, queried live by the agent; OPTIONAL — only where that MCP exists). 'graphify' = local tree-sitter graph whose Obsidian notes are folded into the vault (portable baseline). See Decisions/0001.",
+    "cbm": {
+      "project": "{{CBM_PROJECT_OR_NULL}}",
+      "agent_driven": true
+    },
+    "graphify": {
+      "enabled": true,
+      "mode": "code-only",
+      "out_dir": ".graphify",
+      "vault_subdir": "graphify",
+      "backend": null,
+      "note": "mode 'code-only' = pure local AST, zero egress. Set backend to 'ollama' (local) to also extract docs/PDFs + name communities. Refresh with graphify_refresh.sh."
+    }
+  },
+
+  "sections": [
+    { "dir": "architecture", "title": "Architecture", "order": 1 },
+    { "dir": "flows",        "title": "Flows",        "order": 2 },
+    { "dir": "business",     "title": "Business Logic", "order": 3 },
+    { "dir": "code",         "title": "Code Map",     "order": 4 },
+    { "dir": "ops",          "title": "Ops & Runbooks", "order": 5 },
+    { "dir": "decisions",    "title": "Decisions (ADRs)", "order": 6 },
+    { "dir": "reference",    "title": "Reference",    "order": 7 }
+  ],
+
+  "route_scan": {
+    "enabled": true,
+    "note": "Set enabled=false for non-web repos. Override 'patterns' (list of regexes, 1-2 capture groups) for non-Python stacks; examples are in build_brain.py.",
+    "include_globs": ["*.py", "app/**/*.py", "src/**/*.py"],
+    "patterns": null,
+    "output": "code/routes.md"
+  }
+}
