@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # install_cbm.sh — install + register codebase-memory-mcp (CBM), the second graph
 # substrate. CBM is an MCP server, so after a FRESH install you must RESTART your
-# agent (Claude Code) before it connects. Idempotent.
+# agent before it connects. Idempotent.
 #
 # CBM = a single static binary (162 languages, zero deps). Public:
 #   https://github.com/DeusData/codebase-memory-mcp
@@ -27,6 +27,6 @@ codebase-memory-mcp install || true
 
 echo
 echo "==> CBM installed + registered."
-echo "    RESTART your agent (Claude Code) so the CBM MCP connects, then say:"
+echo "    RESTART your agent so the CBM MCP connects, then say:"
 echo "      'Index this project'"
 echo "    Until the restart, the second brain still builds fully on Graphify."
