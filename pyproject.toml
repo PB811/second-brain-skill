@@ -1,0 +1,33 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "second-brain-skill"
+version = "0.1.0"
+description = "Install the second-brain Claude Code skill: turn any codebase into a private, reproducible Obsidian second brain (Graphify + codebase-memory-mcp)."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{ name = "Prathamesh Bheemanathi" }]
+keywords = ["claude-code", "skill", "obsidian", "codebase", "knowledge-graph", "graphify", "second-brain"]
+
+[project.urls]
+Homepage = "https://github.com/PB811/second-brain-skill"
+Repository = "https://github.com/PB811/second-brain-skill"
+
+# `uvx --from git+https://github.com/PB811/second-brain-skill second-brain install`
+# (or, once on PyPI, `uvx second-brain-skill install`)
+[project.scripts]
+second-brain = "second_brain_cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["second_brain_cli"]
+
+# Bundle the skill files (which live at the repo root) into the wheel so the
+# installer can copy them out — no duplication, no network at install time.
+[tool.hatch.build.targets.wheel.force-include]
+"SKILL.md" = "second_brain_cli/_skill/SKILL.md"
+"scripts" = "second_brain_cli/_skill/scripts"
+"assets" = "second_brain_cli/_skill/assets"
+"references" = "second_brain_cli/_skill/references"

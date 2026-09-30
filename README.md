@@ -15,11 +15,15 @@ the *meaning* on top of the structure.
 
 ## Install
 
+**One-liner (uv, no manual install):**
 ```bash
-# clone into your Claude Code skills dir
+uvx --from git+https://github.com/PB811/second-brain-skill second-brain install
+```
+**Or clone it directly:**
+```bash
 git clone https://github.com/PB811/second-brain-skill ~/.claude/skills/second-brain
 ```
-(or unzip the release into `~/.claude/skills/`). Then, in **any repo**, tell Claude Code:
+(or unzip a release into `~/.claude/skills/`). Then, in **any repo**, tell Claude Code:
 
 > "build a second brain for this repo"  (or `/second-brain`)
 
@@ -60,12 +64,18 @@ scripts/
   install_cbm.sh             # install + register CBM (MCP)
   graph_sources/             # cbm.py + graphify.py adapters
 assets/                      # brain.config template, note templates, gitignore, README/AGENTS
-references/                  # graph-explainer.md, knowledge-authoring.md
+references/                  # graph-explainer.md, knowledge-authoring.md, deep-wiki-mode.md
+second_brain_cli/            # the uvx/pip installer entry point
+pyproject.toml               # packaging (enables `uvx … second-brain install`)
 ```
 
+## Modes
+- **Lean (default)** — a dozen high-value curated notes over the exhaustive Graphify graph.
+- **Deep wiki** — ask for a "deep wiki" and it authors a DeepWiki-style multi-page set (one
+  page per subsystem) under `knowledge/wiki/`. See `references/deep-wiki-mode.md`.
+
 ## Roadmap
-- Optional "deep wiki" mode (auto-author many pages, DeepWiki-style depth).
-- `uvx`/`npx` one-liner installer.
+- Publish to PyPI/npm for the shortest command (`uvx second-brain-skill` / `npx …`).
 - Auto-refresh on `git push` (Graphify `hook install`).
 - Multi-repo / org graph (Graphify `global`).
 

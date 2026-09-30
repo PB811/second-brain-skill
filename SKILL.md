@@ -88,11 +88,19 @@ live, agent-queried call-graph on top.
 
 ## Step 4 — Author the starter knowledge
 
-Read `references/knowledge-authoring.md`. Using the graphs (CBM `trace_path` / `search_graph`,
-or `graphify query` / `graphify explain` / `graphify god-nodes`), write a small, high-value
-set of `knowledge/` notes for THIS repo: `architecture/overview.md`, a `flows/<name>.md` per
-major path, `reference/glossary.md`, `decisions/0001-graph-substrate.md`, plus `business/`,
-`ops/`, and 1-2 `code/` notes as warranted. Ground every claim in `file:line`. No secrets.
+Read `references/knowledge-authoring.md`. Pick a depth:
+
+- **Lean (default):** a small, high-value set of `knowledge/` notes for THIS repo —
+  `architecture/overview.md`, a `flows/<name>.md` per major path, `reference/glossary.md`,
+  `decisions/0001-graph-substrate.md`, plus `business/`, `ops/`, and 1-2 `code/` notes as
+  warranted. (The exhaustive per-symbol coverage already lives in `vault/graphify/`.)
+- **Deep wiki:** if the user asks for a "deep wiki" / "full wiki" / "document everything", or
+  is onboarding a large/unfamiliar repo, also author a DeepWiki-style multi-page set under
+  `knowledge/wiki/` (one page per subsystem/module). Follow `references/deep-wiki-mode.md`.
+  It costs more time + tokens — tell the user before committing to it.
+
+Use the graphs to derive structure (CBM `trace_path` / `search_graph`, or `graphify query` /
+`graphify explain` / `graphify god-nodes`). Ground every claim in `file:line`. No secrets.
 
 ## Step 5 — Build
 
