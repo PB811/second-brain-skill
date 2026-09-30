@@ -24,7 +24,7 @@ Python 3.10+ stdlib only — no MCP, no LLM, no network. Then open `second-brain
 vault in Obsidian → start at `00-Home`.
 
 ## Query it — two ways
-1. **Claude Code ↔ vault** via the Obsidian *Local REST API* plugin (v5+):
+1. **Your agent ↔ vault** via the Obsidian *Local REST API* plugin (v5+):
    ```bash
    claude mcp add --transport http obsidian https://127.0.0.1:27124/mcp/ \
      --header "Authorization: Bearer <YOUR_OBSIDIAN_API_KEY>"
@@ -36,7 +36,7 @@ vault in Obsidian → start at `00-Home`.
 - **CBM** (`codebase-memory-mcp`) — agent-queried code graph. A public single static binary
   (162 languages). If it's missing, the skill installs + registers it via
   `second-brain/install_cbm.sh` (or manually: `npm i -g codebase-memory-mcp && codebase-memory-mcp install`).
-  **It's an MCP server, so restart Claude Code after installing**, then say "Index this project".
+  **It's an MCP server, so restart your agent after installing**, then say "Index this project".
 - **Graphify** (`graphifyy`) — local tree-sitter graph; Obsidian notes + Canvas + HTML.
   Refresh: `second-brain/graphify_refresh.sh` (code-only = zero egress; `.env` auto-skipped).
   Ask it: `graphify query "<q>" --graph second-brain/.graphify/graphify-out/graph.json`.

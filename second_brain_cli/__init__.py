@@ -1,11 +1,11 @@
 """
-second-brain — installer CLI for the second-brain Claude Code skill.
+second-brain — installer CLI for the second-brain agentic coding skill.
 
 Run without a manual install via uv:
     uvx --from git+https://github.com/PB811/second-brain-skill second-brain install
 
 `install` copies the skill into ~/.claude/skills/second-brain/ (override the target
-with the CLAUDE_SKILLS_DIR env var). After installing, open Claude Code in any repo
+with the CLAUDE_SKILLS_DIR env var). After installing, open your agent in any repo
 and say "build a second brain for this repo".
 """
 from __future__ import annotations
@@ -57,7 +57,7 @@ def install() -> int:
         elif src.exists():
             shutil.copyfile(src, dest / item)
     print(f"Installed '{SKILL_NAME}' skill -> {dest}")
-    print("Next: open Claude Code in any repo and say:")
+    print("Next: open your agent in any repo and say:")
     print('  "build a second brain for this repo"')
     return 0
 
@@ -69,11 +69,11 @@ def main(argv: list[str] | None = None) -> int:
         return install()
     if cmd in ("-h", "--help", "help"):
         print(
-            "second-brain — install the Claude Code second-brain skill\n\n"
+            "second-brain — install the second-brain agentic coding skill\n\n"
             "usage:\n"
             "  second-brain install   copy the skill into ~/.claude/skills/ (or $CLAUDE_SKILLS_DIR)\n"
             "  second-brain --help\n\n"
-            "then, in any repo, tell Claude Code: 'build a second brain for this repo'"
+            "then, in any repo, tell your AI coding agent: 'build a second brain for this repo'"
         )
         return 0
     if cmd in ("-V", "--version", "version"):

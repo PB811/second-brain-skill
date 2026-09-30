@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install package (validates pyproject + packaging)
+        run: python -m pip install .
+      - name: CLI smoke test
+        run: second-brain --help
+      - name: Syntax-check builder + adapters
+        run: python -c "import ast, pathlib; [ast.parse(p.read_text()) for p in pathlib.Path('scripts').rglob('*.py')]"
+      - name: Verify skill files bundle into the wheel
+        run: |
+          python -c "import second_brain_cli, pathlib; r = second_brain_cli._skill_root(); assert r and (r / 'SKILL.md').exists(), r; print('skill root ok:', r)"

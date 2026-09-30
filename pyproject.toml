@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "second-brain-skill"
 version = "0.1.0"
-description = "Install the second-brain Claude Code skill: turn any codebase into a private, reproducible Obsidian second brain (Graphify + codebase-memory-mcp)."
+description = "Install the second-brain agentic coding skill: turn any codebase into a private, reproducible Obsidian second brain (Graphify + codebase-memory-mcp)."
 readme = "README.md"
 requires-python = ">=3.10"
 license = "MIT"

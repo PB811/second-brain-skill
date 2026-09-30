@@ -1,6 +1,6 @@
 # AGENTS.md — how an agent maintains this second brain
 
-You are an AI agent (Claude Code or similar) asked to build, refresh, or query this repo's
+You are an AI coding agent asked to build, refresh, or query this repo's
 second brain. Read this first.
 
 ## Ground rules

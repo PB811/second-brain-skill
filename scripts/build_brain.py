@@ -216,7 +216,7 @@ def gen_home(cfg: dict, vault: Path, sections: list[tuple[dict, Path]],
         "", "---",
         "## How to use this brain",
         "- **Browse**: open the graph view; start from a section index above.",
-        "- **Ask (Claude Code)**: the Obsidian MCP lets Claude read/write these notes.",
+        "- **Ask (your agent)**: the Obsidian MCP lets your agent read/write these notes.",
         "- **Ask (in Obsidian)**: Smart Connections / Copilot chat over the vault.",
         "- **Refresh code notes**: see `second-brain/AGENTS.md`.",
     ]

@@ -68,7 +68,7 @@ CBM (`codebase-memory-mcp`) is a public single static binary that runs as an MCP
   `brain.config.json → graph_source.cbm.project`.
 - **If CBM is NOT available:** install + register it with `scripts/install_cbm.sh` (npm or
   the official installer, then `codebase-memory-mcp install`). **Important:** CBM is an MCP
-  *server*, so it only connects after the agent (Claude Code) **restarts** — you cannot query
+  *server*, so it only connects after your agent **restarts** — you cannot query
   it in the same run. So: run the installer, tell the user to restart and later say "Index this
   project", set `cbm.project` in the config anyway (predict the id from the repo path, e.g.
   `home-<user>-...-<repo>`), and **continue this run on Graphify** (Step 3), which needs no

@@ -1,9 +1,11 @@
-# second-brain — a Claude Code skill
+# second-brain — an agentic coding skill
+
+[![CI](https://github.com/PB811/second-brain-skill/actions/workflows/ci.yml/badge.svg)](https://github.com/PB811/second-brain-skill/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/license-MIT-1d2633.svg)](LICENSE)
 
 Turn **any codebase** into a private, reproducible **Obsidian "second brain"** — a generated
 vault backed by two code-graph substrates:
 
-- **[Graphify](https://github.com/DeusData/codebase-memory-mcp)-class local graph** (`graphifyy`) — tree-sitter across ~36 languages, exported as Obsidian notes + Canvas + HTML. *The graph you look at.*
+- **[Graphify](https://pypi.org/project/graphifyy/) local graph** (`graphifyy`) — tree-sitter across ~36 languages, exported as Obsidian notes + Canvas + HTML. *The graph you look at.*
 - **[CBM](https://github.com/DeusData/codebase-memory-mcp)** (`codebase-memory-mcp`) — an MCP the agent queries live for call-chains, data-flow, impact. *The graph the assistant thinks with.*
 
 …plus a lean, agent-authored **knowledge layer** (flows, ADRs, runbooks, glossary) that carries
@@ -12,6 +14,12 @@ the *meaning* on top of the structure.
 > **The model:** a committed *recipe* (a stdlib-only builder + templates + sanitized knowledge)
 > generates a gitignored *vault*. It's **"docker compose for a second brain"** — any dev or agent
 > runs one command and reproduces the same brain.
+
+![Graphify's code graph of a real repo (GraphRAG) — 964 nodes / 2,348 edges](docs/graph.png)
+
+> **Agent-agnostic.** This is a skill any agentic coding tool that reads skills can run.
+> Install examples use the `~/.claude/skills/` directory — point it at whatever skills
+> directory your agent uses.
 
 ## Install
 
@@ -23,7 +31,7 @@ uvx --from git+https://github.com/PB811/second-brain-skill second-brain install
 ```bash
 git clone https://github.com/PB811/second-brain-skill ~/.claude/skills/second-brain
 ```
-(or unzip a release into `~/.claude/skills/`). Then, in **any repo**, tell Claude Code:
+(or unzip a release into `~/.claude/skills/`). Then, in **any repo**, tell your AI coding agent:
 
 > "build a second brain for this repo"  (or `/second-brain`)
 
@@ -36,7 +44,7 @@ graphs again. Open `second-brain/vault/` in Obsidian → start at `00-Home`.
   runtime (Graphify installs via `uv tool install graphifyy`). The **analyzed project can be any
   language** (Java, Go, TS, Rust, …).
 - **CBM** (`codebase-memory-mcp`) is auto-installed + registered by the skill; it's an MCP server,
-  so restart Claude Code once after a fresh install.
+  so restart your agent once after a fresh install.
 - **Obsidian** to browse the vault (optional plugins: Local REST API MCP, Smart Connections, Copilot).
 
 ## What makes it different
@@ -80,4 +88,4 @@ pyproject.toml               # packaging (enables `uvx … second-brain install`
 - Multi-repo / org graph (Graphify `global`).
 
 ## License
-MIT © Prathamesh Bheemanathi. Built with Claude Code.
+MIT © Prathamesh Bheemanathi.
